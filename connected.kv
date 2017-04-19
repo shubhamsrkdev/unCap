@@ -1,0 +1,29 @@
+<Connected>:
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            Label:
+                text: "Logged In"
+                font_size: 28
+                size_hint:[1,1]
+                height:40
+            Button:
+                text: '@'
+                font_size:10
+                height:40
+                width:20
+                size_hint:[None,None]
+                on_press:print("yolo")
+        Label:
+            id:username
+            text:'Yolo1'
+            color:0,1,0,1
+            size_hint:[1,1]
+            font_size: 28
+            height:20
+        Button:
+            height:30
+            size_hint:[1,1]
+            text: "Disconnect"
+            font_size: 24
+            on_press: root.disconnect()

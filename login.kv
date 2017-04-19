@@ -1,0 +1,66 @@
+#:include connected.kv
+
+<Login>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'temp.jpg'
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        
+        BoxLayout:
+            padding:[0,0,0,0]
+            orientation: 'horizontal'
+            Label:
+                text: '    Login Manager :D'
+                font_size: 28
+                halign:'right'
+                height:40
+                size_hint:[1,None]
+            Button:
+                text: '@'
+                font_size:10
+                height:40
+                width:20
+                size_hint:[None,None]
+                on_press:print("yolo")
+            
+        Label:
+            id:status
+            text:'enter username and password'
+            font_size:12
+            size_hint:[1,None]
+            height:25
+ 
+
+                
+        BoxLayout:
+            padding:[20,0,20,0]
+            orientation: 'vertical'
+            
+            TextInput:
+                id: login
+                multiline:False
+                font_size: 15
+                hint_text:'username'
+                write_tab:False
+                
+            TextInput:
+                id: password
+                multiline:False
+                password:True
+                font_size: 15
+                hint_text:'password'
+                write_tab:False
+                    
+        BoxLayout:
+            orientation:'vertical'
+            padding:[20,0,20,10]
+            Button:
+                text: 'Login'
+                font_size: 15
+                size_hint:[1,None]
+                height:30
+                on_press: root.do_login(login.text, password.text)

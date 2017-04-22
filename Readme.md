@@ -14,3 +14,4 @@ git clone git@bitbucket.org:udaykrishna5/uncap.git
 cd uncap
 python3 main.py
 ```
+## Packaging guidelines

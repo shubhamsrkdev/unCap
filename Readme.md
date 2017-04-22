@@ -1,4 +1,4 @@
-# [unCap](https://bitbucket.org/udaykrishna5/uncap) **change the link to wiki page**
+# [unCap](https://bitbucket.org/udaykrishna5/uncap/wiki)
 
 ## Requirements for dev
 - Python3

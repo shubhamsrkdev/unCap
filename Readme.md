@@ -7,4 +7,7 @@
 - install pillow 
 ```python3 -m pip install pillow```
 
-## TODO: continue doc
+## running unCap
+- ``` git clone git@bitbucket.org:udaykrishna5/uncap.git ```
+- ``` cd uncap ```
+- ``` python3 main.py ```

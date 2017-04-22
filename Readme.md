@@ -8,6 +8,9 @@
 ```python3 -m pip install pillow```
 
 ## running unCap
-- ``` git clone git@bitbucket.org:udaykrishna5/uncap.git ```
-- ``` cd uncap ```
-- ``` python3 main.py ```
+```
+#!bash
+git clone git@bitbucket.org:udaykrishna5/uncap.git
+cd uncap
+python3 main.py
+```

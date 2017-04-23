@@ -4,6 +4,7 @@ class Status:
         self.reason=reason
 
 def login(username,password):
+    return Status(True,"Logged In")
     from requests import post
     try:
         creds={}
@@ -11,7 +12,7 @@ def login(username,password):
         creds['password']=password
         creds['mode']=191
         #print(creds)
-        response=post("http://172.16.0.30:8090/httpclient.html",data=creds,timeout=10)
+        response=post("http://172.16.0.30:8090/httpclient.html",data=creds,timeout=8)
         print(response.text)
         return login_status(response.text)
     except Exception as e:
@@ -21,11 +22,6 @@ def login(username,password):
 def getCreds():
     return {'username':'lol','password':'$as'}
 
-def settings(scn):
-    from kivy.core.window import Window
-    from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
-    scn.manager.transition = SlideTransition(direction="top")
-    scn.manager.current = 'settings'
 
 def login_status(response):
     try:
@@ -55,7 +51,7 @@ def logout(username):
         creds={}
         creds['username']=username
         creds['mode']=193
-        response=post("http://172.16.0.30:8090/httpclient.html",data=creds,timeout=2)
+        response=post("http://172.16.0.30:8090/httpclient.html",data=creds,timeout=8)
         print(response.text)
         return logout_status(response.text)
     except Exception as e:

@@ -7,6 +7,7 @@ import login
 from kivy.core.window import Window
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
+from kivy.clock import Clock
 
 
 from connected import Connected
@@ -19,13 +20,15 @@ Config.set('graphics', 'height', '250')
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 #Config.set('graphics', 'borderless', '1')
 
-
 class Login(Screen):
+    def setsize(self,dt): 
+        Window.size=(340,150)
     def do_asynclogin(self,username,password):
         popup = Popup(title='logging in...', content=Label(text='please wait'),auto_dismiss=False,size_hint=(None, None), size=(200, 100))
         popup.open()
         s=Thread(target=self.do_login,args=(username,password,popup))
         s.start()
+        
         # s.join()S
     def do_login(self, username, password,popu):
         self.ids['status'].color=[1,1,1,1]
@@ -37,13 +40,13 @@ class Login(Screen):
         app = App.get_running_app()
         stat=login.login(username,password)
         popu.dismiss()
+        Clock.schedule_once(self.setsize, 0)
         if(stat.success):
             self.manager.transition = SlideTransition(direction="left")
             self.manager.current = 'connected'
             self.manager.get_screen("connected").ids['username'].text = self.ids['login'].text
             app.config.read(app.get_application_config())
             app.config.write()
-            Window.size = (340, 150)
         else:
             self.ids['status'].text=stat.reason
     

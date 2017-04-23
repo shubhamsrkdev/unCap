@@ -4,7 +4,6 @@ class Status:
         self.reason=reason
 
 def login(username,password):
-    return Status(True,"Logged In")
     from requests import post
     try:
         creds={}

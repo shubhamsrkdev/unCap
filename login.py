@@ -21,6 +21,12 @@ def login(username,password):
 def getCreds():
     return {'username':'lol','password':'$as'}
 
+def settings(scn):
+    from kivy.core.window import Window
+    from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
+    scn.manager.transition = SlideTransition(direction="top")
+    scn.manager.current = 'settings'
+
 def login_status(response):
     try:
         from lxml import etree

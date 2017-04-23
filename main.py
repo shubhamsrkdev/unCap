@@ -7,6 +7,7 @@ import login
 from kivy.core.window import Window
 
 from connected import Connected
+from settings import Settings
 Config.set('graphics', 'width', '340')
 Config.set('graphics', 'height', '250')
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
@@ -19,7 +20,7 @@ class Login(Screen):
         if((username or password) == ''):
             self.ids['status'].text="username and password cannot be blank"
             self.ids['status'].color=[1,0,0,1]
-            return 
+            return
         from login import Status
         app = App.get_running_app()
         stat=login.login(username,password)
@@ -32,6 +33,10 @@ class Login(Screen):
             Window.size = (340, 150)
         else:
             self.ids['status'].text=stat.reason
+    
+    def settings(self):
+        self.manager.transition = SlideTransition(direction="up")
+        self.manager.current = 'settings'
 
     def resetForm(self):
         self.ids['login'].text = ""
@@ -54,6 +59,7 @@ class LoginApp(App):
         manager = ScreenManager()
         manager.add_widget(Login(name='login'))
         manager.add_widget(Connected(name='connected'))
+        manager.add_widget(Settings(name='settings'))
 
         return manager
 

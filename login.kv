@@ -1,6 +1,14 @@
 #:include connected.kv
 #:include settings.kv
-
+<AnimWidget@Widget>:
+    canvas:
+        Color:
+            rgba: 0.7, 0.3, 0.9, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    size_hint: None, None
+    size: 400, 30
 <Login>:
     canvas.before:
         Rectangle:
@@ -64,4 +72,4 @@
                 font_size: 15
                 size_hint:[1,None]
                 height:30
-                on_press: root.do_login(login.text, password.text)
+                on_press: root.do_asynclogin(login.text, password.text)

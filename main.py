@@ -5,25 +5,38 @@ import os
 from kivy.config import Config
 import login
 from kivy.core.window import Window
+from kivy.uix.popup import Popup
+from kivy.uix.label import Label
+
 
 from connected import Connected
 from settings import Settings
+from threading import Thread
+
+
 Config.set('graphics', 'width', '340')
 Config.set('graphics', 'height', '250')
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 #Config.set('graphics', 'borderless', '1')
 
+
 class Login(Screen):
-    def do_login(self, username, password):
+    def do_asynclogin(self,username,password):
+        popup = Popup(title='logging in...', content=Label(text='please wait'),auto_dismiss=False,size_hint=(None, None), size=(200, 100))
+        popup.open()
+        s=Thread(target=self.do_login,args=(username,password,popup))
+        s.start()
+        # s.join()S
+    def do_login(self, username, password,popu):
         self.ids['status'].color=[1,1,1,1]
         self.ids['status'].text="enter username and password"
         if((username or password) == ''):
             self.ids['status'].text="username and password cannot be blank"
             self.ids['status'].color=[1,0,0,1]
             return
-        from login import Status
         app = App.get_running_app()
         stat=login.login(username,password)
+        popu.dismiss()
         if(stat.success):
             self.manager.transition = SlideTransition(direction="left")
             self.manager.current = 'connected'

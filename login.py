@@ -11,12 +11,12 @@ def login(username,password):
         creds['password']=password
         creds['mode']=191
         #print(creds)
-        response=post("http://172.16.0.30:8090/httpclient.html",data=creds,timeout=2)
+        response=post("http://172.16.0.30:8090/httpclient.html",data=creds,timeout=10)
         print(response.text)
         return login_status(response.text)
     except Exception as e:
         print(e)
-        return Status(False,"No Internet. Connect and try again")
+        return Status(False,"cannot connect to cyberoam. is the ethernet/wifi working ?")
 
 def getCreds():
     return {'username':'lol','password':'$as'}

@@ -10,4 +10,3 @@ class Settings(Screen):
         Window.size = (340, 250)
         self.manager.transition = SlideTransition(direction="down")
         self.manager.current = 'login'
-        self.manager.get_screen('login').resetForm()

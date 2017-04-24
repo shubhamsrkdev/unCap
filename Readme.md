@@ -36,6 +36,9 @@ python -m pip install wheel
 python -m pip install requests
 python -m pip install lxml 
 python -m pip install pillow
+python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
+python -m pip install kivy.deps.gstreamer
+python -m pip install kivy
 
 ```
 use wheel for lxml if it fails [download link of wheel](http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml)

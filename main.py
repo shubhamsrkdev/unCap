@@ -36,6 +36,7 @@ class Login(Screen):
         if((username or password) == ''):
             self.ids['status'].text="username and password cannot be blank"
             self.ids['status'].color=[1,0,0,1]
+            popu.dismiss()
             return
         app = App.get_running_app()
         stat=login.login(username,password)

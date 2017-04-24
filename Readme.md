@@ -3,7 +3,7 @@
 ## Requirements for dev setup linux
 - [Python3](https://www.python.org/downloads/)
 - pip3: comes prepackaged with python3 upgrade it
-- [kivy](https://kivy.org/docs/installation/installation.html) ``` pip install 
+- [kivy](https://kivy.org/docs/installation/installation.html)
 - install pillow
 ```python3 -m pip install pillow```
 

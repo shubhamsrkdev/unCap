@@ -23,7 +23,7 @@ python3 -m pip install pillow
 ## Windows devsetup 
 ** kivy works only upto python 3.4 on windows so install 3.4 and not 3.6 **
 
-install [microsoft visual studio build tools 2015](http://landinghub.visualstudio.com/visual-cpp-build-tools)
+install [microsoft visual studio build tools 2015 and VS 2017](http://landinghub.visualstudio.com/visual-cpp-build-tools)
 
 ```
 python -m pip install --upgrade pip

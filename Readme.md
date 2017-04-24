@@ -16,6 +16,9 @@ python3 -m pip install wheel
 python3 -m pip install requests
 python3 -m pip install lxml 
 python3 -m pip install pillow
+python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
+python -m pip install kivy.deps.gstreamer
+python -m pip install kivy
 
 ```
 

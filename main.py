@@ -41,8 +41,8 @@ class Login(Screen):
         app = App.get_running_app()
         stat=login.login(username,password)
         popu.dismiss()
-        Clock.schedule_once(self.setsize, 0)
         if(stat.success):
+            Clock.schedule_once(self.setsize, 0)
             self.manager.transition = SlideTransition(direction="left")
             self.manager.current = 'connected'
             self.manager.get_screen("connected").ids['username'].text = self.ids['login'].text
@@ -54,6 +54,7 @@ class Login(Screen):
     def settings(self):
         self.manager.transition = SlideTransition(direction="up")
         self.manager.current = 'settings'
+        self.manager.get_screen('settings').setprev_('login')
 
     def resetForm(self):
         self.ids['login'].text = ""

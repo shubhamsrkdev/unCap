@@ -28,5 +28,8 @@ class Connected(Screen):
         self.manager.get_screen('login').resetForm()
         Clock.schedule_once(self.setsize, 0)
 
-    def settings():
-        login.settings(self)        
+    def settings(self):
+        Window.size=(340,250)
+        self.manager.get_screen('settings').setprev_('connected')
+        self.manager.transition = SlideTransition(direction="up")
+        self.manager.current = 'settings'             

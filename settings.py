@@ -24,6 +24,6 @@ class Settings(Screen):
         self.manager.current = self.prev
 
     def about(self):
-        popup = Popup(title='Made by Uday.', content=Label(text='click outside the box to dismiss',font_size='12sp'),auto_dismiss=True,size_hint=(None, None), size=(200, 100),title_size='20sp',title_align='center')
+        popup = Popup(title='Made by Uday.', content=Label(text='click outside the box to dismiss',font_size='9sp'),auto_dismiss=True,size_hint=(None, None), size=(200, 100),title_size='20sp',title_align='center')
         popup.open()
         

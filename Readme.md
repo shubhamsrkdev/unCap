@@ -9,6 +9,7 @@
 
 #### Incase something doesn't work run this
 ```
+#!bash
 python3 -m pip install --upgrade pip
 python3 -m pip install setuptools
 python3 -m pip install Cython
@@ -17,10 +18,12 @@ python3 -m pip install requests
 python3 -m pip install lxml 
 python3 -m pip install pillow
 python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
-python -m pip install kivy.deps.gstreamer
+python -m pip install kivy.deps.gstreamer 
 python -m pip install kivy
 
 ```
+
+> also don't forget to refer to [kivy installation guide](https://kivy.org/docs/installation/installation.html)
 
 
 ## Windows devsetup 

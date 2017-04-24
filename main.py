@@ -31,11 +31,11 @@ class Login(Screen):
         
         # s.join()S
     def do_login(self, username, password,popu):
-        self.ids['status'].color=[1,1,1,1]
+        #self.ids['status'].color=[1,1,1,1]
         self.ids['status'].text="enter username and password"
         if((username or password) == ''):
             self.ids['status'].text="username and password cannot be blank"
-            self.ids['status'].color=[1,0,0,1]
+            #self.ids['status'].color=[1,0,0,1]
             popu.dismiss()
             return
         app = App.get_running_app()
@@ -70,10 +70,10 @@ class LoginApp(App):
     Window.size = (350, 225)
     username = StringProperty(None)
     password = StringProperty(None)
-    title='Cyberoam Login <3 Uday'
+    title='unCap <3 Uday'
 
     def build(self):
-        self.icon='icon.png'
+        self.icon='res/icon.png'
         manager = ScreenManager()
         manager.add_widget(Login(name='login'))
         manager.add_widget(Connected(name='connected'))

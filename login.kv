@@ -1,20 +1,12 @@
 #:include connected.kv
 #:include settings.kv
-<AnimWidget@Widget>:
-    canvas:
-        Color:
-            rgba: 0.7, 0.3, 0.9, 1
-        Rectangle:
-            pos: self.pos
-            size: self.size
-    size_hint: None, None
-    size: 400, 30
+
 <Login>:
     canvas.before:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'temp.jpg'
+            source: 'res/back.jpg'
     BoxLayout
         id: login_layout
         orientation: 'vertical'
@@ -22,12 +14,8 @@
         BoxLayout:
             padding:[0,0,0,0]
             orientation: 'horizontal'
-            Label:
-                text: '    Login Manager :D'
-                font_size: 28
-                halign:'right'
-                height:40
-                size_hint:[1,None]
+            Image:
+                source:"res/uncap.png"
             Button:
                 text: '@'
                 font_size:10
@@ -72,6 +60,7 @@
             Button:
                 text: 'Login'
                 font_size: 15
+                pos:40,40
                 size_hint:[1,None]
                 height:30
                 on_press: root.do_asynclogin(login.text, password.text)

@@ -73,3 +73,12 @@ def logout_status(response):
         print("error parsing Response")
         print(e)
         return Status(False,"Error Parsing response.")
+
+def save(self,creds):
+    with open('cred.bin','wb') as f:
+        from pickle import dump
+        dump(creds,f)
+def load(self):
+    with open('creds.bin','rb') as f:
+        from pickle import load
+        return load(f)

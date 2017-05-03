@@ -70,14 +70,26 @@ class LoginApp(App):
     Window.size = (350, 225)
     username = StringProperty(None)
     password = StringProperty(None)
-    title='unCap <3 Uday'
+    title='unCap by Uday'
 
     def build(self):
+        try:
+            with open('cred.bin','rb') as f:
+                pass
+        except:
+            try:
+                with open('cred.bin','wb') as f:
+                    a={'user':'password'}
+                    from pickle import dump
+                    dump(a,f)
+            except:
+                print("i don't have write access")
         self.icon='res/icon.png'
         manager = ScreenManager()
         manager.add_widget(Login(name='login'))
         manager.add_widget(Connected(name='connected'))
         manager.add_widget(Settings(name='settings'))
+        # manager.add_widget(CredMan(name='credman'))
 
         return manager
 
@@ -93,6 +105,7 @@ class LoginApp(App):
         return super(LoginApp, self).get_application_config(
             '%s/config.cfg' % (conf_directory)
         )
+
 
 if __name__ == '__main__':
     LoginApp().run()

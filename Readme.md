@@ -31,6 +31,7 @@ python3 -m pip install psutil
 ** kivy works only upto python 3.4 on windows so install 3.4 and not 3.6 **
 
 install [microsoft visual studio build tools 2015 and VS 2017](http://landinghub.visualstudio.com/visual-cpp-build-tools)
+
 assuming only python 3 is installed run these commands. In case there's python2 installed as well make sure to replace python with appropriate command that refers to python3
 ```
 python -m pip install --upgrade pip

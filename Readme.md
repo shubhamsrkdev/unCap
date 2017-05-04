@@ -1,4 +1,5 @@
-# [unCap](https://bitbucket.org/udaykrishna5/uncap/wiki)
+![unCap](https://raw.githubusercontent.com/udaykrishna/unCap/master/res/uncap.png)
+# [unCap](https://github.com/udaykrishna/unCap/wiki)
 
 ## Requirements for dev setup linux
 - [Python3](https://www.python.org/downloads/)

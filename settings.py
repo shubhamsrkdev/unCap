@@ -40,7 +40,7 @@ class Settings(Screen):
         buttons.add_widget(Button(text= 'add',font_size= 15,pos=[40, 40],size_hint=[1, None],height=30,on_press=lambda x:self.p_add(credman)))
         buttons.add_widget(Button(text= 'save',font_size= 15,pos=[40, 40],size_hint=[1, None],height=30,on_press=lambda x:self.c_save(credman)))
         buttons.add_widget(Button(text= 'back',font_size= 15,pos=[40, 40],size_hint=[1, None],height=30,on_press=lambda x:self.c_back(credman)))
-        print('yolo')
+        # print('yolo')
         with open('cred.bin','rb') as f:
             from pickle import load
             creds=load(f)
@@ -48,7 +48,7 @@ class Settings(Screen):
         layout=GridLayout(cols=1,size_hint=[1,None],height=450)
         # layout.bind(minimum_height=layout.setter('height'))
         for user in creds.keys():
-            print(user)
+            # print(user)
             usr=TextInput(text=str(user),id=str(str(i)+'u'),multiline=False,write_tab=False,use_bubble=True,size_hint=[1, None],height=35)
             pwd=TextInput(text=str(creds[user]),id=str(str(i)+'p'),multiline=False,write_tab=False,password=True,use_bubble=True,size_hint=[1, None],height=35)
             dele=Button(text=str('x'),size_hint=[None,1],width=20,id=str(i),on_press=lambda i:self.c_dele(credman,i.id),height=35)
@@ -85,7 +85,7 @@ class Settings(Screen):
         wid={}
         for widget in self.manager.get_screen('credman').walk():
             wid[widget.id]=widget
-        print(wid)
+        # print(wid)
         new_creds={}
         for keys in creds.keys():
             new_creds[wid[str(i)+'u'].text]=str(wid[str(i)+'p'].text)
@@ -105,7 +105,7 @@ class Settings(Screen):
         wid={}
         for widget in self.manager.get_screen('credman').walk():
             wid[widget.id]=widget
-        print(wid)
+        # print(wid)
         new_creds={}
         for keys in creds.keys():
             if str(i)==id:
@@ -124,7 +124,7 @@ class Settings(Screen):
         base=BoxLayout(orientation="vertical",id="box")
         user=TextInput(id="user",hint_text="username",multiline=False,write_tab=False,use_bubble=True)
         pwd=TextInput(id="user",hint_text="password",multiline=False,write_tab=False,use_bubble=True,password=True)
-        add=Button(id="add",text="add",on_press=lambda x:self.c_add(user,pwd))
+        add=Button(id="add",text="add",on_press=lambda x:self.c_add(user,pwd,credman))
         quit=Label(text='click outside the box to dismiss',font_size='9sp')
         base.add_widget(user)
         base.add_widget(pwd)
@@ -133,7 +133,7 @@ class Settings(Screen):
         popup = Popup(title='Add User', content=base,auto_dismiss=True,size_hint=(None, None), size=(200, 200),title_size='20sp',title_align='center')
         popup.open()
 
-    def c_add(self,username,password):
+    def c_add(self,username,password,credman):
         if username == '' or password == '':
             return
         creds={}

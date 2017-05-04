@@ -21,9 +21,73 @@ Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 #Config.set('graphics', 'borderless', '1')
 
 class Login(Screen):
+    def thread_netcheck(self,dt):
+        self.st=Thread(target=self.netcheck)
+        self.st.start()
+    def netcheck(self):
+        import checks
+        if not checks.checkSpeed():
+            if not checks.checkInternet():
+                self.do_autologin('','')
+    def start_new_clock(self):
+        self.schedule=Clock.schedule_interval(self.thread_netcheck,3)
+    def kill_prev_clocks(self):
+        try:
+            self.schedule.cancel()
+            # self.stop_th.set()
+        except:
+            print("no previous schedule")
+    def do_autologin(self,usr,pwd):
+        popup = Popup(title='logging in...',content=Label(text='please wait'),auto_dismiss=False,size_hint=(None, None), size=(200, 100))
+        popup.open()
+        s=Thread(target=self.autoLogin,args=(usr,popup))
+        s.start()             
+
+    def autoLogin(self,usr,popu):
+        creds={}
+        with open('cred.bin','rb') as f:
+            from pickle import load
+            creds=load(f)
+        if usr != '':
+            try:
+                if login.login(usr,creds[usr]).success:
+                    popu.dismiss()
+                    self.kill_prev_clocks()
+                    self.start_new_clock()
+                    if (self.manager.current=='connected' or self.manager.current=='login'):
+                        Clock.schedule_once(self.setsize, 0)
+                        self.manager.transition = SlideTransition(direction="left")
+                        self.manager.current = 'connected'
+                    self.manager.get_screen("connected").ids['username'].text = username
+                    return
+            except:
+                print("error occured with provided user")           
+        for username in creds.keys():
+            popu.content=Label(text=username)
+            if login.login(username,creds[username]).success:
+                try:
+                    self.kill_prev_clocks()
+                except:
+                    print("no prev clocks running")
+                popu.dismiss()
+                self.start_new_clock()
+                if (self.manager.current=='connected' or self.manager.current=='login'):
+                        Clock.schedule_once(self.setsize, 0)
+                        self.manager.transition = SlideTransition(direction="left")
+                        self.manager.current = 'connected'
+                self.manager.get_screen("connected").ids['username'].text = username
+                return
+            else:
+                pass                
+        self.ids['status'].text="autologin failed"
+        popu.dismiss()
+                
+
     def setsize(self,dt): 
         Window.size=(340,150)
     def do_asynclogin(self,username,password):
+        if username == '' or password == '':
+            self.do_autologin(username,password)
         popup = Popup(title='logging in...', content=Label(text='please wait'),auto_dismiss=False,size_hint=(None, None), size=(200, 100))
         popup.open()
         s=Thread(target=self.do_login,args=(username,password,popup))
@@ -94,6 +158,7 @@ class LoginApp(App):
         return manager
 
     def get_application_config(self):
+        print("hello")
         if(not self.username):
             return super(LoginApp, self).get_application_config()
 

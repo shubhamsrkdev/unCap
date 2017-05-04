@@ -23,6 +23,7 @@ class Connected(Screen):
         stat=login.logout(self.ids['username'].text)
         popu.dismiss()
         self.manager.get_screen('login').ids['status'].text=stat.reason
+        self.manager.get_screen('login').kill_prev_clocks()
         self.manager.transition = SlideTransition(direction="right")
         self.manager.current = 'login'
         self.manager.get_screen('login').resetForm()

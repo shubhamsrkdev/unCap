@@ -17,9 +17,10 @@ python3 -m pip install wheel
 python3 -m pip install requests
 python3 -m pip install lxml 
 python3 -m pip install pillow
-python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
-python -m pip install kivy.deps.gstreamer 
-python -m pip install kivy
+python3 -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
+python3 -m pip install kivy.deps.gstreamer 
+python3 -m pip install kivy
+python3 -m pip install psutil
 
 ```
 
@@ -31,6 +32,7 @@ python -m pip install kivy
 
 install [microsoft visual studio build tools 2015 and VS 2017](http://landinghub.visualstudio.com/visual-cpp-build-tools)
 
+assuming only python 3 is installed run these commands. In case there's python2 installed as well make sure to replace python with appropriate command that refers to python3
 ```
 python -m pip install --upgrade pip
 python -m pip install setuptools
@@ -42,6 +44,7 @@ python -m pip install pillow
 python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
 python -m pip install kivy.deps.gstreamer
 python -m pip install kivy
+python -m pip install psutil
 
 ```
 use wheel for lxml if it fails [download link of wheel](http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml)

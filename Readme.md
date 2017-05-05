@@ -1,6 +1,5 @@
 ![unCap](https://raw.githubusercontent.com/udaykrishna/unCap/master/res/uncap.png)
-# [unCap](https://github.com/udaykrishna/unCap/wiki)
-
+## [Wiki](https://github.com/udaykrishna/unCap/wiki)
 ## [Download link](https://github.com/udaykrishna/unCap/releases/tag/1.0.0)
 
 ## Requirements for dev setup linux

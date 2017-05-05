@@ -1,6 +1,8 @@
 ![unCap](https://raw.githubusercontent.com/udaykrishna/unCap/master/res/uncap.png)
 # [unCap](https://github.com/udaykrishna/unCap/wiki)
 
+## [Download link](https://github.com/udaykrishna/unCap/releases/tag/1.0.0)
+
 ## Requirements for dev setup linux
 - [Python3](https://www.python.org/downloads/)
 - pip3: comes prepackaged with python3 upgrade it

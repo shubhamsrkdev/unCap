@@ -12,7 +12,7 @@ def login(username,password):
         creds['mode']=191
         #print(creds)
         response=post("http://172.16.0.30:8090/httpclient.html",data=creds,timeout=8)
-        print(response.text)
+        # print(response.text)
         return login_status(response.text)
     except Exception as e:
         print(e)
@@ -26,7 +26,6 @@ def login_status(response):
     try:
         from lxml import etree
         status=etree.fromstring(response)
-        print(status[1].tag)
         print(status[1].text)
         if(status[1].text=='You have successfully logged in'):
             #print("logged in")
@@ -36,6 +35,8 @@ def login_status(response):
             return Status(False,"invalid Password")
         elif(status[1].text=='Your data transfer has been exceeded, Please contact the administrator'):
             return Status(False,"Data Limit exceeded")
+        elif(status[1].text=='You have reached Maximum Login Limit.'):
+            return Status(False,"Login Limit exceeded")
         else:
             print("Something wierd happened")
             return Status(False,"Oops.Something wierd happened !!")
@@ -51,7 +52,7 @@ def logout(username):
         creds['username']=username
         creds['mode']=193
         response=post("http://172.16.0.30:8090/httpclient.html",data=creds,timeout=8)
-        print(response.text)
+        # print(response.text)
         return logout_status(response.text)
     except Exception as e:
         print(e)
@@ -61,10 +62,9 @@ def logout_status(response):
     try:
         from lxml import etree
         status=etree.fromstring(response)
-        print(status[1].tag)
         print(status[1].text)
         if(status[1].text=='You have successfully logged off'):
-            #print("logged in")
+            #print("logged out")
             return Status(True,"Logged out")
         else:
             print("Something wierd happened")

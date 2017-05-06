@@ -10,8 +10,7 @@
 ```python3 -m pip install pillow```
 
 #### Incase something doesn't work run this
-```
-#!bash
+```bash
 python3 -m pip install --upgrade pip
 python3 -m pip install setuptools
 python3 -m pip install Cython
@@ -35,7 +34,7 @@ python3 -m pip install psutil
 install [microsoft visual studio build tools 2015 and VS 2017](http://landinghub.visualstudio.com/visual-cpp-build-tools)
 
 assuming only python 3 is installed run these commands. In case there's python2 installed as well make sure to replace python with appropriate command that refers to python3
-```
+```bash
 python -m pip install --upgrade pip
 python -m pip install setuptools
 python -m pip install Cython
@@ -57,8 +56,7 @@ python -m pip wheel <name of the wheel downloaded>
 
 
 ## running unCap
-```
-#!bash
+```bash
 git clone git@bitbucket.org:udaykrishna5/uncap.git
 cd uncap
 python3 main.py

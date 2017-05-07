@@ -14,7 +14,7 @@ The tool is a semi-command line tool that can be used to import credentials from
 
 # usage instructions for mac or linux
 - clone the repository or download importer.py
-- make sure to install python3 and go to the directory where importer.py is present and type in
+- make sure to install python3 and go to the directory where importer.py is present and type in the following command 
 
 ```bash
 python3 importer.py

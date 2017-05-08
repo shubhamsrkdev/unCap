@@ -19,3 +19,4 @@ The tool is a semi-command line tool that can be used to import credentials from
 ```bash
 python3 importer.py
 ```
+## [Excel importer - Windows Binary](https://github.com/udaykrishna/unCap/releases/download/1.0.0/excel_importer.exe)

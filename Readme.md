@@ -1,6 +1,7 @@
 ![unCap](https://raw.githubusercontent.com/udaykrishna/unCap/master/res/uncap.png)
 ## [Wiki](https://github.com/udaykrishna/unCap/wiki)
 ## [Download link](https://github.com/udaykrishna/unCap/releases/tag/1.0.0)
+## [Excel Importer tool](https://github.com/udaykrishna/unCap/tree/tools/excel_importer)
 
 ## Requirements for dev setup linux
 - [Python3](https://www.python.org/downloads/)

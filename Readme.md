@@ -23,6 +23,7 @@ python3 -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
 python3 -m pip install kivy.deps.gstreamer 
 python3 -m pip install kivy
 python3 -m pip install psutil
+python3 -m pip install pygame
 
 ```
 
@@ -47,6 +48,7 @@ python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
 python -m pip install kivy.deps.gstreamer
 python -m pip install kivy
 python -m pip install psutil
+python -m pip install pygame
 
 ```
 use wheel for lxml if it fails [download link of wheel](http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml)

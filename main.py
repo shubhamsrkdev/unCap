@@ -13,11 +13,16 @@ from kivy.clock import Clock
 from connected import Connected
 from settings import Settings
 from threading import Thread
-
+from kivy.logger import Logger
 
 Config.set('graphics', 'width', '340')
 Config.set('graphics', 'height', '250')
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
+Config.set('kivy','log_level','debug')
+Config.set('kivy','log_enable','1')
+Config.set('kivy','log_name','uncap_%y-%m-%d-_%_.txt')
+Config.set('kivy','log_maxfile','100')
+Logger.info('logger enabled')
 #Config.set('graphics', 'borderless', '1')
 
 class Login(Screen):
@@ -36,7 +41,7 @@ class Login(Screen):
             self.schedule.cancel()
             # self.stop_th.set()
         except:
-            print("no previous schedule")
+            Logger.info("no previous schedule")
     def do_autologin(self,usr,pwd):
         popup = Popup(title='logging in...',content=Label(text='please wait'),auto_dismiss=False,size_hint=(None, None), size=(200, 100))
         popup.open()
@@ -61,14 +66,14 @@ class Login(Screen):
                     self.manager.get_screen("connected").ids['username'].text = username
                     return
             except:
-                print("error occured with provided user")           
+                Logger.error("error occured with provided user")           
         for username in creds.keys():
             popu.content=Label(text=username)
             if login.login(username,creds[username]).success:
                 try:
                     self.kill_prev_clocks()
                 except:
-                    print("no prev clocks running")
+                    Logger.info("no prev clocks running")
                 popu.dismiss()
                 self.start_new_clock()
                 if (self.manager.current=='connected' or self.manager.current=='login'):
@@ -147,7 +152,7 @@ class LoginApp(App):
                     from pickle import dump
                     dump(a,f)
             except:
-                print("i don't have write access")
+                Logger.warning("i don't have write access")
         self.icon='res/icon.png'
         manager = ScreenManager()
         manager.add_widget(Login(name='login'))
@@ -158,7 +163,7 @@ class LoginApp(App):
         return manager
 
     def get_application_config(self):
-        print("hello")
+        Logger.info("application config inside")
         if(not self.username):
             return super(LoginApp, self).get_application_config()
 

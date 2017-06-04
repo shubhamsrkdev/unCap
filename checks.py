@@ -1,4 +1,5 @@
 import socket as sk
+from kivy.logger import Logger
 def getWebsite():
     return "www.google.com"
 
@@ -20,7 +21,7 @@ def checkInternet():
         else:
             return False
     except Exception as e:
-        print(e)
+        Logger.error(e)
         return False
 
 def checkSpeed():

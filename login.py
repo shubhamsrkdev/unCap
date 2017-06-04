@@ -1,3 +1,4 @@
+from kivy.logger import Logger
 class Status:
     def __init__(self,success,reason):
         self.success=success
@@ -12,10 +13,10 @@ def login(username,password):
         creds['mode']=191
         #print(creds)
         response=post("http://172.16.0.30:8090/httpclient.html",data=creds,timeout=8)
-        # print(response.text)
+        Logger.info(response.text)
         return login_status(response.text)
     except Exception as e:
-        print(e)
+        Logger.error(e)
         return Status(False,"cannot connect to cyberoam. is the ethernet/wifi working ?")
 
 def getCreds():
@@ -26,7 +27,7 @@ def login_status(response):
     try:
         from lxml import etree
         status=etree.fromstring(response)
-        print(status[1].text)
+        Logger.info(status[1].text)
         if(status[1].text=='You have successfully logged in'):
             #print("logged in")
             return Status(True,"Logged In")
@@ -38,11 +39,11 @@ def login_status(response):
         elif(status[1].text=='You have reached Maximum Login Limit.'):
             return Status(False,"Login Limit exceeded")
         else:
-            print("Something wierd happened")
+            Logger.error("Something wierd happened")
             return Status(False,"Oops.Something wierd happened !!")
     except Exception as e:
-        print("error parsing Response")
-        print(e)
+        Logger.error("error parsing Response")
+        Logger.error(e)
         return Status(False,"Error Parsing response.")
 
 def logout(username):
@@ -52,26 +53,26 @@ def logout(username):
         creds['username']=username
         creds['mode']=193
         response=post("http://172.16.0.30:8090/httpclient.html",data=creds,timeout=8)
-        # print(response.text)
+        Logger.info(response.text)
         return logout_status(response.text)
     except Exception as e:
-        print(e)
+        Logger.error(e)
         return Status(False,"No Internet. So don't bother trying ")
 
 def logout_status(response):
     try:
         from lxml import etree
         status=etree.fromstring(response)
-        print(status[1].text)
+        Logger.info(status[1].text)
         if(status[1].text=='You have successfully logged off'):
             #print("logged out")
             return Status(True,"Logged out")
         else:
-            print("Something wierd happened")
+            Logger.error("Something wierd happened")
             return Status(False,"Oops.Something wierd happened !!")
     except Exception as e:
-        print("error parsing Response")
-        print(e)
+        Logger.error("error parsing Response")
+        Logger.error(e)
         return Status(False,"Error Parsing response.")
 
 def save(self,creds):

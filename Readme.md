@@ -60,7 +60,7 @@ python -m pip wheel <name of the wheel downloaded>
 
 ## running unCap
 ```bash
-git clone git@github.com:udaykrishna/unCap.git
+git clone https://github.com/udaykrishna/unCap.git
 cd uncap
 python3 main.py
 ```

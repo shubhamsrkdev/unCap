@@ -64,3 +64,8 @@ git clone https://github.com/udaykrishna/unCap.git
 cd uncap
 python3 main.py
 ```
+to run uncap without console use 
+```
+setsid python3 main.py
+```
+now you can close the terminal used to launch it

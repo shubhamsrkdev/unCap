@@ -31,7 +31,7 @@ python3 -m pip install pygame
 
 
 ## Windows devsetup 
-** kivy works only upto python 3.4 on windows so install 3.4 and not 3.6 **
+** kivy works only upto python ~~3.4 on windows so install 3.4 and not 3.6~~ **probably fixed** **
 
 install [microsoft visual studio build tools 2015 and VS 2017](http://landinghub.visualstudio.com/visual-cpp-build-tools)
 

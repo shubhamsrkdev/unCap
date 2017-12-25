@@ -10,7 +10,7 @@ def main():
     print("Pick the excel file from which you want to import credentials\n")
     input("press enter to start\n")
     root.deiconify()
-    excel=filedialog.askopenfilename(title="open uncap.exe",filetypes=[("excel","*.xl*")])
+    excel=filedialog.askopenfilename(title="open Excel File.exe",filetypes=[("excel","*.xl*")])
     root.iconify()
     if(excel==''):
         print("file does not exist")

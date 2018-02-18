@@ -53,7 +53,7 @@ python -m pip install pygame
 ```
 use wheel for lxml if it fails [download link of wheel](http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml)
 
-python -m pip wheel <name of the wheel downloaded>
+`python -m pip wheel <name of the wheel downloaded>`
 
 
 
